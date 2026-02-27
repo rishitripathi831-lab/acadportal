@@ -1,0 +1,219 @@
+/* frontend/src/styles/components.css */
+
+/* Card Component */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  margin-bottom: 20px; /* Spacing between cards */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.3em;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-content {
+  /* Specific styles for card content if needed */
+}
+
+/* Button Component */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none; /* Ensure buttons don't have underline if used as links */
+}
+
+/* Primary Button */
+.btn.primary {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+  position: relative;
+  top:-20px;
+}
+
+.btn.primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Secondary Button */
+.btn.secondary {
+  background-color: #6c757d;
+  color: #ffffff;
+  border-color: #6c757d;
+}
+
+.btn.secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.2);
+}
+
+/* Outline Primary Button */
+.btn.outline-primary {
+  background-color: transparent;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn.outline-primary:hover {
+  background-color: #e6f2ff; /* Light blue background */
+  color: #0056b3;
+  border-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+}
+
+/* Danger Button */
+.btn.danger {
+  background-color: #dc3545;
+  color: #ffffff;
+  border-color: #dc3545;
+}
+
+.btn.danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
+}
+
+/* Info Button */
+.btn.info {
+  background-color: #17a2b8;
+  color: #ffffff;
+  border-color: #17a2b8;
+}
+
+.btn.info:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+  box-shadow: 0 4px 8px rgba(23, 162, 184, 0.2);
+}
+
+/* Disabled Button */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn svg {
+  margin-right: 8px;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Form utilities for consistent alignment */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+
+.btn.small {
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+
+.card .row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Table Styles (for later use in dashboards) */
+.table-container {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  color: #555;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f2f6ff; /* Light hover effect for rows */
+}
+
+.data-table td img {
+  max-width: 40px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 10px;
+}
