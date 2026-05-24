@@ -1,5 +1,7 @@
 const db = require("../config/db");
 const path = require('path');
+const sendAssignmentEmail =
+require("../services/emailService");
 
 const createAssignment = (req, res) => {
   console.log('--- createAssignment called ---');
@@ -27,6 +29,76 @@ const createAssignment = (req, res) => {
       return res.status(500).json({ message: 'Failed to create assignment', error: err.message || err });
     }
     console.log('Assignment inserted id=', result.insertId, 'file=', assignment_file, 'file_path=', assignment_file_path);
+    const studentQuery = ` 
+    SELECT email
+
+FROM students
+
+WHERE department = ?
+AND semester = ?
+
+`;
+
+db.query(
+
+  studentQuery,
+
+  [branch, semester],
+
+  async (studentErr, students) => {
+
+    if (studentErr) {
+
+      console.error(
+        "Student fetch error:",
+        studentErr
+      );
+
+    } else {
+
+      console.log(
+        "Students fetched:",
+        students
+      );
+
+      for (const student of students) {
+
+        if (student.email) {
+
+          console.log(
+            "Sending email to:",
+            student.email
+          );
+
+          await sendAssignmentEmail(
+
+            student.email,
+
+            {
+
+              title,
+
+              subject,
+
+              deadline,
+
+              branch,
+
+              semester,
+
+            }
+
+          );
+
+        }
+
+      }
+
+    }
+
+  }
+
+);
     return res.status(201).json({ success: true, message: 'Assignment created successfully', assignment_id: result.insertId });
   });
 };

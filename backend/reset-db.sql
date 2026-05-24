@@ -30,8 +30,14 @@ CREATE TABLE IF NOT EXISTS assignments (
     title VARCHAR(255) NOT NULL,
     subject VARCHAR(100),
     deadline DATE,
+    branch VARCHAR(10),
+    semester INT,
+    year VARCHAR(20),
+    assignment_file VARCHAR(255),
+    created_at DATETIME,
     FOREIGN KEY (faculty_id) REFERENCES faculty(faculty_id)
 );
+
 
 -- Create submissions table
 CREATE TABLE IF NOT EXISTS submissions (
@@ -42,6 +48,8 @@ CREATE TABLE IF NOT EXISTS submissions (
     file_path VARCHAR(255),
     grade INT,
     similarity_score FLOAT,
+    status VARCHAR(50) DEFAULT 'Pending',
+    evaluated_at DATETIME,
     FOREIGN KEY (assignment_id) REFERENCES assignments(assignment_id),
     FOREIGN KEY (enrollment_no) REFERENCES students(enrollment_no)
 );
